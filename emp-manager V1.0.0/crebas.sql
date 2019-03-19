@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2019.03.17 ÐÇÆÚÈÕ 14:51:10                      */
+/* Created on:     2019.03.18 æ˜ŸæœŸä¸€ 20:00:06                      */
 /*==============================================================*/
 
 
@@ -23,9 +23,9 @@ drop table if exists operations_rules;
 /*==============================================================*/
 create table dept
 (
-   deptno               varchar(32) not null,
+   dept_no              varchar(32) not null,
    name                 varchar(64) not null,
-   primary key (deptno)
+   primary key (dept_no)
 );
 
 /*==============================================================*/
@@ -33,14 +33,14 @@ create table dept
 /*==============================================================*/
 create table emp
 (
-   empno                varchar(32) not null,
+   emp_no               varchar(32) not null,
    name                 varchar(64) not null,
    birthday             date not null,
    sex                  varchar(2) not null,
-   mobilephone          varchar(11) not null,
-   deptno               varchar(32) not null,
+   mobile_phone         varchar(11) not null,
+   dept_no              varchar(32) not null,
    password             varchar(1024) not null,
-   primary key (empno)
+   primary key (emp_no)
 );
 
 /*==============================================================*/
@@ -48,11 +48,11 @@ create table emp
 /*==============================================================*/
 create table job
 (
-   jobno                varchar(32) not null,
+   job_no               varchar(32) not null,
    name                 varchar(64) not null,
    level                varchar(2) not null,
-   deptno               varchar(32) not null,
-   primary key (jobno)
+   dept_no              varchar(32) not null,
+   primary key (job_no)
 );
 
 /*==============================================================*/
@@ -60,11 +60,12 @@ create table job
 /*==============================================================*/
 create table menu
 (
-   menuno               varchar(32) not null,
+   menu_no              varchar(32) not null,
    name                 varchar(64) not null,
    url                  varchar(1024) not null,
-   parentmenurulesno    varchar(64),
-   primary key (menuno)
+   parent_menu_rulesno  varchar(64),
+   open_rules           char(10),
+   primary key (menu_no)
 );
 
 /*==============================================================*/
@@ -72,9 +73,9 @@ create table menu
 /*==============================================================*/
 create table menu_rules
 (
-   jobno                varchar(32) not null,
-   menuno               varchar(32) not null,
-   primary key (jobno, menuno)
+   job_no               varchar(32) not null,
+   menu_no              varchar(32) not null,
+   primary key (job_no, menu_no)
 );
 
 /*==============================================================*/
@@ -82,11 +83,11 @@ create table menu_rules
 /*==============================================================*/
 create table operations
 (
-   operationsno         varchar(32) not null,
+   operations_no        varchar(32) not null,
    name                 varchar(64) not null,
    code                 varchar(32) not null,
-   menuno               varchar(32) not null,
-   primary key (operationsno)
+   menu_no              varchar(32) not null,
+   primary key (operations_no)
 );
 
 /*==============================================================*/
@@ -94,8 +95,8 @@ create table operations
 /*==============================================================*/
 create table operations_rules
 (
-   jobno                varchar(32) not null,
-   operationsno         varchar(32) not null,
-   primary key (jobno, operationsno)
+   job_no               varchar(32) not null,
+   operations_no        varchar(32) not null,
+   primary key (job_no, operations_no)
 );
 
