@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2019.03.18 星期一 20:00:06                      */
+/* Created on:     2019.03.23 星期六 23:44:20                      */
 /*==============================================================*/
 
 
@@ -40,6 +40,7 @@ create table emp
    mobile_phone         varchar(11) not null,
    dept_no              varchar(32) not null,
    password             varchar(1024) not null,
+   job_no               varchar(32) not null,
    primary key (emp_no)
 );
 
@@ -60,12 +61,12 @@ create table job
 /*==============================================================*/
 create table menu
 (
-   menu_no              varchar(32) not null,
+   menuno               varchar(32) not null,
    name                 varchar(64) not null,
    url                  varchar(1024) not null,
-   parent_menu_rulesno  varchar(64),
-   open_rules           char(10),
-   primary key (menu_no)
+   parentmenurulesno    varchar(64),
+   open_rules           varchar(2) not null,
+   primary key (menuno)
 );
 
 /*==============================================================*/
