@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     2019.04.26 ÐÇÆÚÎå 0:08:37                       */
+/* Created on:     2019.06.01 ÐÇÆÚÁù 23:13:49                      */
 /*==============================================================*/
 
 
@@ -84,8 +84,9 @@ create table menu
 create table operations
 (
    operations_no        varchar(32) not null,
-   name                 varchar(64) not null,
+   job_no               varchar(32) not null,
    menu_no              varchar(32) not null,
+   operations_name      varchar(32) not null,
    primary key (operations_no)
 );
 
